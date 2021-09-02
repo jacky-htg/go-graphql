@@ -1,0 +1,11 @@
+type Query {
+  myServiceTodos: [Todo!]!
+  bargingOrders: [Order!]!
+}
+
+type Mutation {
+  myServiceCreateTodo(input: NewTodoInput!): Todo!
+  bargingCreateOrder(input: NewOrderInput!): Order!
+}
+
+scalar Timestamp

@@ -1,0 +1,99 @@
+type Order {
+  id: ID!
+  internal_id: String!
+  project_name: String!
+  agreement_id: Int!
+  barge_id: Int!
+  accepted_offer_id: Int!
+  expired_at: Timestamp!
+  customer_iid: String!
+  customer_name: String!
+  customer_image_url: String!
+  customer_pic_name: String!
+  customer_pic_phone: String!
+  customer_request_number: String!
+  customer_order_number: String!
+  accepted_order_vendor_id: String!
+  vendor_order_number: String!
+  route: String!
+  total_loading_rate: Float!
+  total_weight_ton: Float!
+  total_volume_cbm: Float!
+  status: Int!
+  notes: String!
+  cancel_reason: String!
+  cancelled_at: Timestamp
+  cancelled_by: String!
+  accepted_at: Timestamp
+  accepted_by: String!
+  is_deleted: Boolean!
+  created_at: Timestamp!
+  created_by: String!
+  updated_at: Timestamp!
+  updated_by: String!
+  deleted_at: Timestamp
+  deleted_by: String!
+  order_loads: [OrderLoad!]!
+  order_locations: [OrderLocation!]!
+}
+
+type OrderLoad {
+  id: ID!
+  internal_id: String!
+  order_id: Int!
+  goods_type: String!
+  volume_cbm: Float!
+  weight_ton: Float!
+  loading_rate: Float!
+  pickup_datetime: Timestamp!
+  delivery_datetime: Timestamp!
+}
+
+type OrderLocation {
+  id: ID!
+  internal_id: String!
+  order_id: Int!
+  sequence: Int!
+  location_id: Int!
+  name: String!
+  address: String!
+  city: String!
+  district: String!
+  village: String!
+  postcode: String!
+  plus_code: String!
+  latitude: Float!
+  longitude: Float!
+  is_load: Boolean!
+  is_unload: Boolean!
+  created_at: Timestamp
+  created_by: String!
+  updated_at: Timestamp
+  updated_by: String!
+  deleted_at: Timestamp
+  deleted_by: String!
+}
+
+input NewOrderInput {
+  project_name: String!
+  expired_at: Timestamp
+  customer_iid: String!
+#  routes: [NewOrderRouteInput!]!
+#  order_loads: [NewOrderLoadInput!]!
+}
+
+# input NewOrderLoadInput {
+#  goods_type: String!
+#  volume_cbm: Float!
+#  weight_ton: Float!
+#  loading_rate: Float!
+#  pickup_datetime: Timestamp
+#  delivery_datetime: Timestamp
+# }
+
+# input NewOrderRouteInput {
+#  sequence: Int! 
+#  location_id: Int!
+#  is_load: Boolean!
+#  is_unload: Boolean!
+# }
